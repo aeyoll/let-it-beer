@@ -22,6 +22,7 @@ from api import views
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+router.register(r'beers', views.BeerViewSet)
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
