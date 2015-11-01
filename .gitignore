@@ -76,3 +76,4 @@ bower_components
 settings_*.py
 
 node_modules
+webpack-stats.json
