@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import BeerList from './beer-list';
+import $ from 'jquery';
 
 class App extends Component {
-  state: {
-    beers: []
-  };
+  constructor() {
+    super();
+
+    this.state = {
+      beers: []
+    }
+  }
 
   componentDidMount() {
     $.get('/api/beers', function(result) {
