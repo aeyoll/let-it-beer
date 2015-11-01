@@ -1,5 +1,13 @@
-import React from 'react';
-import ReactDom from 'react-dom';
-import App from './app';
+import React from 'react'
+import { render } from 'react-dom'
+import { Router, Route } from 'react-router'
+import App from './routes/app'
+import Search from './routes/search'
 
-ReactDom.render(<App/>, document.getElementById('react-app'));
+render((
+  <Router>
+    <Route path="/" component={App}>
+      <Route path="search" component={Search} />
+    </Route>
+  </Router>
+), document.getElementById('react-app'))

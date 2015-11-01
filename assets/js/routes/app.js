@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import BeerList from './beer-list';
-import $ from 'jquery';
+import React, { Component } from 'react'
+import BeerList from '../beer-list'
+import Navigation from '../components/navigation/navigation'
+import $ from 'jquery'
 
 class App extends Component {
   constructor() {
@@ -26,7 +27,9 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Navigation></Navigation>
         <h1>Let it beer!</h1>
+        {this.props.children}
         <BeerList beers={this.state.beers}></BeerList>
       </div>
     );
