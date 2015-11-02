@@ -1,7 +1,7 @@
 var path = require("path");
 var webpack = require('webpack');
 var BundleTracker = require('webpack-bundle-tracker');
-
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   context: __dirname,
@@ -24,7 +24,10 @@ module.exports = {
 
   module: {
     loaders: [
-      // we pass the output from babel loader to react-hot loader
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -36,6 +39,10 @@ module.exports = {
       },
     ],
   },
+
+  postcss: [
+    require('autoprefixer')
+  ],
 
   resolve: {
     modulesDirectories: ['node_modules', 'bower_components'],
