@@ -75,8 +75,10 @@ bower_components
 # Local settings
 settings_*.py
 
+# Webpack build
 /assets/bundles/
-/ssets/dist/
-
-node_modules
+/assets/dist/
 webpack-stats*.json
+
+# Node Modules
+node_modules
