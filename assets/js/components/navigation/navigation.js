@@ -7,6 +7,7 @@ class Navigation extends Component {
     return (
       <ul className={styles.common}>
         <li><Link to="/">Home</Link></li>
+        <li><Link to="/list">List your beers</Link></li>
         <li><Link to="/search">Search a beer</Link></li>
       </ul>
     );
