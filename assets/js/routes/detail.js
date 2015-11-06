@@ -12,9 +12,9 @@ class Detail extends Component {
   }
 
   componentDidMount() {
-    const id = this.props.params.beerId;
+    const uuid = this.props.params.beerUuid;
 
-    $.get('/api/beers/' + id, function(data) {
+    $.get('/api/beers/' + uuid, function(data) {
       var beer = data;
 
       this.setState({

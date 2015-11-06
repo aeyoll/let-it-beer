@@ -11,7 +11,7 @@ render((
     <Route path="/" component={App}>
       <Route path="search" component={Search} />
       <Route path="list" component={List} />
-      <Route path="beer/:beerId" component={Detail} />
+      <Route path="beer/:beerUuid" component={Detail} />
     </Route>
   </Router>
 ), document.getElementById('react-app'))
