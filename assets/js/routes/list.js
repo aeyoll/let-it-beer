@@ -7,15 +7,21 @@ class List extends Component {
     super();
 
     this.state = {
-      beers: []
+      beers: [{
+        id: 1,
+        name: 'Punk IPA'
+      }, {
+        id: 2,
+        name: 'Brooklyn Lagger'
+      }]
     }
   }
 
   componentDidMount() {
-    $.get('/api/beers', function(result) {
-      var beers = result;
+    $.get('/api/beers', function(data) {
+      var beers = data.results;
 
-      if (this.isMounted()) {
+      if (beers.length) {
         this.setState({
           beers: beers,
         });
