@@ -7,10 +7,7 @@ class Detail extends Component {
     super();
 
     this.state = {
-      beer: {
-        id: 1,
-        name: 'Punk IPA'
-      }
+      beer: {}
     }
   }
 
@@ -18,7 +15,7 @@ class Detail extends Component {
     const id = this.props.params.beerId;
 
     $.get('/api/beers/' + id, function(data) {
-      var beer = data.results;
+      var beer = data;
 
       this.setState({
         beer: beer,

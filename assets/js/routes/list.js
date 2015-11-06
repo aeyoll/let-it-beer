@@ -7,13 +7,7 @@ class List extends Component {
     super();
 
     this.state = {
-      beers: [{
-        id: 1,
-        name: 'Punk IPA'
-      }, {
-        id: 2,
-        name: 'Brooklyn Lagger'
-      }]
+      beers: []
     }
   }
 

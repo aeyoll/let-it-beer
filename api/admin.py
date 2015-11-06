@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
+from .models import Beer
 
-# Register your models here.
+class BeerAdmin(admin.ModelAdmin):
+    fields = ['name']
+    search_fields = ['name']
+
+admin.site.register(Beer, BeerAdmin)
