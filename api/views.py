@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
+from django.http import JsonResponse
 from rest_framework import viewsets
 from .serializers import UserSerializer, GroupSerializer, BeerSerializer
 from .models import Beer
@@ -25,3 +26,6 @@ class BeerViewSet(viewsets.ModelViewSet):
     """
     queryset = Beer.objects.all()
     serializer_class = BeerSerializer
+
+def SearchView(request):
+    return JsonResponse({"key": "value"})
