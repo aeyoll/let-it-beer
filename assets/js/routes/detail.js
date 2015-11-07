@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import BeerList from '../beer-list'
 import $ from 'jquery'
 
 class Detail extends Component {

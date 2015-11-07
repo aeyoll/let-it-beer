@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BeerListItem from './beer-list-item';
+import BeerListItem from '../beer-list-item/beer-list-item';
 
 class BeerList extends Component {
   render() {

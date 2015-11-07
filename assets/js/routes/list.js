@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import BeerList from '../beer-list'
+import BeerList from '../components/beer-list/beer-list'
 import $ from 'jquery'
 
 class List extends Component {
