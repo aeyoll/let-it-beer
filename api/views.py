@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import ratebeer
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from django.http import JsonResponse
@@ -28,4 +29,12 @@ class BeerViewSet(viewsets.ModelViewSet):
     serializer_class = BeerSerializer
 
 def SearchView(request):
-    return JsonResponse({"key": "value"})
+    rb = ratebeer.RateBeer()
+    results = rb.search("summit extra pale ale")
+    ret = []
+
+    for result in results['beers']:
+        # result._populate()
+        ret.append(result.__dict__)
+
+    return JsonResponse(ret, safe=False)
