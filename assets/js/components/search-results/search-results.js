@@ -6,7 +6,7 @@ class SearchResults extends Component {
     return (
       <div>
         {this.props.beers.map((beer) => {
-          return <SearchResultsItem beer={beer} key={beer.url} />;
+          return <SearchResultsItem beer={beer} userBeers={this.props.userBeers} key={beer.url} onBeerAdd={this.props.onBeerAdd} />;
         })}
       </div>
     );

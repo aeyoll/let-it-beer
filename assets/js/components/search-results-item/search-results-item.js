@@ -1,22 +1,36 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import $ from 'jquery'
 
 class SearchResultsItem extends Component {
   constructor() {
-    super();
+    super()
 
-    this.handleBeerAdd = this.handleBeerAdd.bind(this);
+    this.handleBeerAdd = this.handleBeerAdd.bind(this)
   }
 
   handleBeerAdd() {
-    $.post('/api/beers/', this.props.beer);
+    this.props.onBeerAdd(this.props.beer)
+  }
+
+  hasBeerInCollection(collection, beer) {
+    return collection.find(function (cbeer) {
+      return cbeer.url === beer.url
+    })
   }
 
   render() {
+    let userBeers = this.props.userBeers
+    let beer      = this.props.beer
+    let addButton = ''
+
+    if (!this.hasBeerInCollection(userBeers, beer)) {
+      addButton = <button onClick={this.handleBeerAdd}>Add to my beers</button>
+    }
+
     return (
-      <div>{this.props.beer.name} <button onClick={this.handleBeerAdd}>Add to my beers</button></div>
-    );
+      <div>{this.props.beer.name} {addButton}</div>
+    )
   }
 }
 
-export default SearchResultsItem;
+export default SearchResultsItem
