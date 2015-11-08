@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import SearchBar from '../components/search-bar/search-bar'
-import BeerList from '../components/beer-list/beer-list'
+import SearchResults from '../components/search-results/search-results'
 
 class Search extends Component {
   constructor() {
@@ -32,7 +32,7 @@ class Search extends Component {
       <div>
         <h1>Search a beer</h1>
         <SearchBar query={this.state.query} onUserInput={this.handleUserInput} onUserSubmit={this.handleUserSubmit}></SearchBar>
-        <BeerList beers={this.state.beers}></BeerList>
+        <SearchResults beers={this.state.beers}></SearchResults>
       </div>
     );
   }

@@ -17,8 +17,7 @@ class SearchBar extends Component {
     var beers = [];
 
     $.post('/api/search/', { query: query }, function (data) {
-      beers = data.beers;
-      this.props.onUserSubmit(beers);
+      this.props.onUserSubmit(data);
     }.bind(this));
   }
 
