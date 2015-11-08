@@ -11,6 +11,8 @@ config.entry = [
   './assets/js/index'
 ]
 
+config.devtool = 'inline-source-map';
+
 // override django's STATIC_URL for webpack bundles
 config.output.publicPath = 'http://localhost:3000/assets/bundles/'
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SearchBar from '../components/search-bar/search-bar'
 import SearchResults from '../components/search-results/search-results'
+// import Button from 'react-toolbox/button';
 
 class Search extends Component {
   constructor() {

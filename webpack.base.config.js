@@ -14,17 +14,17 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin("[name]-[hash].css")
+    new ExtractTextPlugin('[name]-[hash].css', { allChunks: true })
   ],
 
   module: {
     loaders: [
       {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader")
+        test: /(\.scss|\.css)$/,
+        loader: ExtractTextPlugin.extract("style", "css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap")
       },
       {
-        test: /\.js$/,
+        test: /(\.js|\.jsx)$/,
         exclude: /node_modules/,
         loader: 'babel',
         query: {
@@ -41,6 +41,6 @@ module.exports = {
 
   resolve: {
     modulesDirectories: ['node_modules', 'bower_components'],
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.jsx', '.scss', '.js', '.json']
   },
 }
