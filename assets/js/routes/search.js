@@ -7,7 +7,7 @@ class Search extends Component {
     super();
 
     this.state = {
-      query: 'summit extra pale ale',
+      query: 'De Molen',
       beers: []
     };
 
