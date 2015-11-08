@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import $ from 'jquery'
+import styles from './search-results-item.scss'
 
 class SearchResultsItem extends Component {
   constructor() {
