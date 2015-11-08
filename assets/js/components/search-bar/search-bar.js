@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styles from './search-bar.css'
+import styles from './search-bar.scss'
 import $ from 'jquery'
 
 class SearchBar extends Component {
