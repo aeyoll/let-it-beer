@@ -16,7 +16,7 @@ class SearchBar extends Component {
     var query = this.refs.query.value;
     var beers = [];
 
-    $.get('/api/search', function(data) {
+    $.post('/api/search/', { query: query }, function (data) {
       beers = data.beers;
       this.props.onUserSubmit(beers);
     }.bind(this));

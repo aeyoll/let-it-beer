@@ -29,6 +29,7 @@ class BeerViewSet(viewsets.ModelViewSet):
     serializer_class = BeerSerializer
 
 def SearchView(request):
+    print(request)
     rb = ratebeer.RateBeer()
     results = rb.search("summit extra pale ale")
     ret = []

@@ -17,17 +17,18 @@
     "history": "^1.13.0",
     "node-libs-browser": "^0.5.0",
     "postcss-loader": "^0.7.0",
-    "react": "^0.14.1",
-    "react-dom": "^0.14.1",
     "react-hot-loader": "^1.2.7",
-    "react-router": "^1.0.0-rc4",
     "style-loader": "^0.13.0",
     "webpack": "^1.9.8",
     "webpack-bundle-tracker": "0.0.8",
     "webpack-dev-server": "^1.9.0"
   },
   "dependencies": {
-    "jquery": "^2.1.4"
+    "jquery": "^2.1.4",
+    "jquery.cookie": "^1.4.1",
+    "react": "^0.14.1",
+    "react-dom": "^0.14.1",
+    "react-router": "^1.0.0-rc4"
   },
   "scripts": {
     "build": "webpack --config webpack.local.config.js --progress --colors",
