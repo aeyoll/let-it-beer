@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import SearchResultsItem from '../search-results-item/search-results-item'
+import styles from './search-results.scss'
 
 class SearchResults extends Component {
   render() {
