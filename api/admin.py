@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import Beer
 
 class BeerAdmin(admin.ModelAdmin):
-    fields = ['name']
-    search_fields = ['name']
+    fields = ['name', 'url']
+    search_fields = ['name', 'url']
 
 admin.site.register(Beer, BeerAdmin)

@@ -16,4 +16,4 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class BeerSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Beer
-        fields = ('id', 'name')
+        fields = ('id', 'name', 'url')
