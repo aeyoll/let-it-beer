@@ -4,7 +4,7 @@ import $ from 'jquery'
 
 class List extends Component {
   constructor() {
-    super();
+    super()
 
     this.state = {
       beers: []
@@ -13,14 +13,14 @@ class List extends Component {
 
   componentDidMount() {
     $.get('/api/beers', function(data) {
-      var beers = data.results;
+      var beers = data.results
 
       if (beers.length) {
         this.setState({
           beers: beers,
-        });
+        })
       }
-    }.bind(this));
+    }.bind(this))
   }
 
   render() {
@@ -29,8 +29,8 @@ class List extends Component {
         <h1>Beer list</h1>
         <BeerList beers={this.state.beers}></BeerList>
       </div>
-    );
+    )
   }
 }
 
-export default List;
+export default List

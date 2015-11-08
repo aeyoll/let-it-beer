@@ -10,8 +10,8 @@ class App extends Component {
         <h1>Let it beer!</h1>
         {this.props.children}
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

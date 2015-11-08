@@ -3,7 +3,7 @@ import $ from 'jquery'
 
 class Detail extends Component {
   constructor() {
-    super();
+    super()
 
     this.state = {
       beer: {}
@@ -11,15 +11,15 @@ class Detail extends Component {
   }
 
   componentDidMount() {
-    const uuid = this.props.params.beerUuid;
+    const uuid = this.props.params.beerUuid
 
     $.get('/api/beers/' + uuid, function(data) {
-      var beer = data;
+      var beer = data
 
       this.setState({
         beer: beer,
-      });
-    }.bind(this));
+      })
+    }.bind(this))
   }
 
   render() {
@@ -27,8 +27,8 @@ class Detail extends Component {
       <div>
         <h1>{this.state.beer.name}</h1>
       </div>
-    );
+    )
   }
 }
 
-export default Detail;
+export default Detail

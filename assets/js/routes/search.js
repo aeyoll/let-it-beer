@@ -20,12 +20,12 @@ class Search extends Component {
 
   componentDidMount() {
     $.get('/api/beers', function(data) {
-      var beers = data.results;
+      var beers = data.results
 
       if (beers.length) {
         this.setState({
           userBeers: beers,
-        });
+        })
       }
     }.bind(this))
   }
@@ -43,7 +43,7 @@ class Search extends Component {
   }
 
   handleBeerAdd(beer) {
-    $.post('/api/beers/', beer);
+    $.post('/api/beers/', beer)
 
     let userBeers = this.state.userBeers
     userBeers.push(beer)
@@ -60,7 +60,7 @@ class Search extends Component {
         <SearchBar query={this.state.query} onUserInput={this.handleUserInput} onUserSubmit={this.handleUserSubmit}></SearchBar>
         <SearchResults beers={this.state.beers} userBeers={this.state.userBeers} onBeerAdd={this.handleBeerAdd}></SearchResults>
       </div>
-    );
+    )
   }
 }
 
