@@ -10,8 +10,8 @@ class Navigation extends Component {
         <li><Link to="/list">List your beers</Link></li>
         <li><Link to="/search">Search a beer</Link></li>
       </ul>
-    );
+    )
   }
 }
 
-export default Navigation;
+export default Navigation

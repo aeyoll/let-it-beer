@@ -15,7 +15,7 @@ import cookie from 'jquery.cookie'
 
 $.ajaxSetup({
   headers: { "X-CSRFToken": $.cookie("csrftoken") }
-});
+})
 
 render((
   <Router>
