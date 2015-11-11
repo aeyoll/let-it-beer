@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
 import ratebeer
+
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from django.http import JsonResponse
+
+from rest_framework import status
 from rest_framework import viewsets
+from rest_framework.decorators import detail_route
+from rest_framework.response import Response
+
 from .serializers import UserSerializer, GroupSerializer, BeerSerializer
 from .models import Beer
-import pprint
-
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -30,6 +34,21 @@ class BeerViewSet(viewsets.ModelViewSet):
     queryset = Beer.objects.all()
     serializer_class = BeerSerializer
 
+    @detail_route(methods=['get'])
+    def fetch_data(self, request, pk=None):
+        rb = ratebeer.RateBeer()
+        beer = self.get_object()
+        fetched_beer = rb.beer(beer.url)
+        print fetched_beer
+        serializer = BeerSerializer(data=beer.__dict__)
+
+        if serializer.is_valid():
+            beer.save()
+            return Response({'status': 'beer data has been fetched'})
+        else:
+            return Response(serializer.errors,
+                            status=status.HTTP_400_BAD_REQUEST)
+
 def SearchView(request):
     query = request.POST.get('query', '')
     rb = ratebeer.RateBeer()
@@ -37,7 +56,6 @@ def SearchView(request):
     ret = []
 
     for result in results['beers']:
-        # result._populate()
         ret.append(result.__dict__)
 
     return JsonResponse(ret, safe=False)
