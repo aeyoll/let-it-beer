@@ -10,11 +10,27 @@ class Detail extends Component {
     }
   }
 
+  fetchData() {
+    const uuid = this.props.params.beerUuid
+
+    $.get('/api/beers/' + uuid + '/fetch_data/', function(data) {
+      var beer = data
+
+      this.setState({
+        beer: beer,
+      })
+    }.bind(this))
+  }
+
   componentDidMount() {
     const uuid = this.props.params.beerUuid
 
     $.get('/api/beers/' + uuid, function(data) {
       var beer = data
+
+      if (beer._has_fetched === false) {
+        this.fetchData()
+      }
 
       this.setState({
         beer: beer,

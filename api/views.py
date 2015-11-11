@@ -39,12 +39,21 @@ class BeerViewSet(viewsets.ModelViewSet):
         rb = ratebeer.RateBeer()
         beer = self.get_object()
         fetched_beer = rb.beer(beer.url)
-        print fetched_beer
+
+        beer.style_rating = fetched_beer['style_rating']
+        beer.seasonal = fetched_beer['seasonal']
+        beer.style = fetched_beer['style']
+        beer.img_url = fetched_beer['img_url']
+        beer.description = fetched_beer['description']
+        beer.ibu = fetched_beer['ibu']
+        beer.abv = fetched_beer['abv']
+        beer._has_fetched = True
+
         serializer = BeerSerializer(data=beer.__dict__)
 
         if serializer.is_valid():
             beer.save()
-            return Response({'status': 'beer data has been fetched'})
+            return Response(serializer.data)
         else:
             return Response(serializer.errors,
                             status=status.HTTP_400_BAD_REQUEST)
