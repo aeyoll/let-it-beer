@@ -6,6 +6,8 @@ from django.http import JsonResponse
 from rest_framework import viewsets
 from .serializers import UserSerializer, GroupSerializer, BeerSerializer
 from .models import Beer
+import pprint
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """
