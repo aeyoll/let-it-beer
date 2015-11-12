@@ -1,7 +1,8 @@
+Django==1.8.5
+argparse==1.2.1
 beautifulsoup4==4.4.1
 cffi==1.2.1
 cryptography==1.0.2
-Django==1.8.5
 django-webpack-loader==0.2.2
 djangorestframework==3.3.0
 enum34==1.0.4
@@ -9,10 +10,11 @@ idna==2.0
 ipaddress==1.0.14
 lxml==3.4.4
 ndg-httpsclient==0.4.0
+pyOpenSSL==0.15.1
 pyasn1==0.1.9
 pycparser==2.14
-pyOpenSSL==0.15.1
-ratebeer==2.3.1
+-e git+https://github.com/OrganicIrradiation/ratebeer.git@f948142193eea2405c8f4043ce329d3990b68f0b#egg=ratebeer-master
 requests==2.7.0
 six==1.9.0
 wheel==0.24.0
+wsgiref==0.1.2
