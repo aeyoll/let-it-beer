@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Beer from '../components/beer/beer'
 import $ from 'jquery'
 
 class Detail extends Component {
@@ -41,16 +42,7 @@ class Detail extends Component {
   render() {
     return (
       <div>
-        <h1>{this.state.beer.name}</h1>
-        <div><img src={this.state.beer.img_url} alt={this.state.beer.name} /></div>
-        <div>{this.state.beer.description}</div>
-        <div>style: {this.state.beer.style}</div>
-        <div>abv: {this.state.beer.abv}</div>
-        <div>ibu: {this.state.beer.ibu}</div>
-        <div>name: {this.state.beer.name}</div>
-        <div>num_ratings: {this.state.beer.num_ratings}</div>
-        <div>overall_rating: {this.state.beer.overall_rating}</div>
-        <div>seasonal: {this.state.beer.seasonal}</div>
+        <Beer beer={this.state.beer}></Beer>
       </div>
     )
   }
