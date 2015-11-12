@@ -29,7 +29,7 @@ module.exports = {
         loader: 'babel',
         query: {
           cacheDirectory: true,
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'stage-0', 'react']
         }
       },
     ],
@@ -41,6 +41,6 @@ module.exports = {
 
   resolve: {
     modulesDirectories: ['node_modules', 'bower_components'],
-    extensions: ['', '.jsx', '.scss', '.js', '.json']
+    extensions: ['', '.jsx', '.js', '.scss', '.json']
   },
 }

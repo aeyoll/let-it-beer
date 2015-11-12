@@ -26,6 +26,7 @@
     "webpack-dev-server": "^1.12.1"
   },
   "dependencies": {
+    "babel-preset-stage-0": "^6.1.2",
     "jquery": "^2.1.4",
     "jquery.cookie": "^1.4.1",
     "normalize.css": "^3.0.3",
