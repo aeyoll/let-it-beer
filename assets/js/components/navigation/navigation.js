@@ -6,9 +6,9 @@ class Navigation extends Component {
   render() {
     return (
       <ul className={styles.common}>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/list">List your beers</Link></li>
-        <li><Link to="/search">Search a beer</Link></li>
+        <li className={styles.item}><Link to="/">Home</Link></li>
+        <li className={styles.item}><Link to="/list">List your beers</Link></li>
+        <li className={styles.item}><Link to="/search">Search a beer</Link></li>
       </ul>
     )
   }

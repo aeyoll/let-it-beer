@@ -11,6 +11,7 @@ import Navigation from '../components/navigation/navigation'
 import Title from '../components/title/title'
 
 // Styles
+import normalize from 'normalize.css'
 import styles from '../../scss/app.scss'
 
 class App extends Component {
@@ -18,11 +19,14 @@ class App extends Component {
     const { title, actions } = this.props
 
     return (
-      <div className={styles.container}>
-        <Title title={title}></Title>
+      <div>
         <Navigation></Navigation>
 
-        {React.cloneElement(this.props.children, { actions })}
+        <div className={styles.container}>
+          <Title title={title}></Title>
+
+          {React.cloneElement(this.props.children, { actions })}
+        </div>
       </div>
     )
   }

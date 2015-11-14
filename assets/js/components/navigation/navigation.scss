@@ -1,2 +1,20 @@
 .common {
+    background: #30323a;
+    color: #fff;
+    display: flex;
+    font-size: 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+.item {
+    color: #fff;
+    padding: 1em;
+
+    a {
+        color: currentColor;
+        text-decoration: none;
+    }
 }
