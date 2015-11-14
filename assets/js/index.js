@@ -3,6 +3,10 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, IndexRoute } from 'react-router'
 
+// Redux
+import { Provider } from 'react-redux'
+import configureStore from './store/configureStore'
+
 // Routes
 import App from './routes/app'
 import Home from './routes/home'
@@ -18,13 +22,17 @@ $.ajaxSetup({
   headers: { "X-CSRFToken": $.cookie("csrftoken") }
 })
 
+const store = configureStore()
+
 render((
-  <Router>
-    <Route path="/" component={App}>
-      <IndexRoute component={Home} />
-      <Route path="search" component={Search} />
-      <Route path="list" component={List} />
-      <Route path="beer/:beerUuid" component={Detail} />
-    </Route>
-  </Router>
+  <Provider store={store}>
+    <Router>
+      <Route path="/" component={App}>
+        <IndexRoute component={Home} />
+        <Route path="search" component={Search} />
+        <Route path="list" component={List} />
+        <Route path="beer/:beerUuid" component={Detail} />
+      </Route>
+    </Router>
+  </Provider>
 ), document.getElementById('react-app'))

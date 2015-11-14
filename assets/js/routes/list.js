@@ -12,6 +12,8 @@ class List extends Component {
   }
 
   componentDidMount() {
+    this.props.actions.updateTitle('Beer list')
+
     $.get('/api/beers', function(data) {
       var beers = data.results
 

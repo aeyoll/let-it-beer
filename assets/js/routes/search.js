@@ -19,6 +19,8 @@ class Search extends Component {
   }
 
   componentDidMount() {
+    this.props.actions.updateTitle('Search a beer')
+
     $.get('/api/beers', function(data) {
       var beers = data.results
 
@@ -56,7 +58,6 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <h1>Search a beer</h1>
         <SearchBar query={this.state.query} onUserInput={this.handleUserInput} onUserSubmit={this.handleUserSubmit}></SearchBar>
         <SearchResults beers={this.state.beers} userBeers={this.state.userBeers} onBeerAdd={this.handleBeerAdd}></SearchResults>
       </div>

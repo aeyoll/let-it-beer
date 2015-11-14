@@ -1,4 +1,12 @@
+// React
 import React, { Component } from 'react'
+
+// Redux
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as TitleActions from '../actions/title'
+
+// Components
 import Navigation from '../components/navigation/navigation'
 import Title from '../components/title/title'
 
@@ -6,25 +14,33 @@ import Title from '../components/title/title'
 import styles from '../../scss/app.scss'
 
 class App extends Component {
-  constructor() {
-    super()
-
-    this.props = {
-      title: 'Let it beer!'
-    }
-  }
-
   render() {
+    const { title, actions } = this.props
+
     return (
       <div className={styles.container}>
-        <Title title={this.props.title}></Title>
+        <Title title={title}></Title>
         <Navigation></Navigation>
 
-        <h1 className={styles.title}>Let it beer!</h1>
-        {this.props.children}
+        {React.cloneElement(this.props.children, { actions })}
       </div>
     )
   }
 }
 
-export default App
+function mapStateToProps(state) {
+  return {
+    title: state.title
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(TitleActions, dispatch)
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)
