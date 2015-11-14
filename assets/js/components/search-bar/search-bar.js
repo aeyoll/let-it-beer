@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import Button from '../button/button'
+
 import styles from './search-bar.scss'
+
 import $ from 'jquery'
 
 class SearchBar extends Component {
@@ -36,7 +39,7 @@ class SearchBar extends Component {
           onChange={this.handleChange}
           ref="query"
         />
-        <button type="submit">Search</button>
+        <Button message="Search"></Button>
       </form>
     )
   }

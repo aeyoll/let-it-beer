@@ -1,0 +1,12 @@
+@import '../../../scss/variables';
+
+.normal {
+    background: none;
+    border-radius: 3px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: $base-font-size;
+    white-space: nowrap;
+    text-align: center;
+    text-transform: uppercase;
+}

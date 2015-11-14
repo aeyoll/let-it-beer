@@ -1,9 +1,8 @@
-.common {
-}
+@import '../../../scss/variables';
 
 .input {
     display: block;
-    font-size: 24px;
+    font-size: $base-font-size;
     margin-bottom: 1em;
     padding: 1em;
     width: 100%;
