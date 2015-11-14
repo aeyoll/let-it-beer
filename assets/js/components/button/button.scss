@@ -1,6 +1,6 @@
 @import '../../../scss/variables';
 
-.normal {
+.common {
     background: none;
     border-radius: 3px;
     cursor: pointer;
@@ -9,4 +9,14 @@
     white-space: nowrap;
     text-align: center;
     text-transform: uppercase;
+}
+
+.large {
+    composes: common;
+
+    font-size: $base-font-size * 1.5;
+    font-weight: 700;
+    display: block;
+    padding: 1em;
+    width: 100%;
 }

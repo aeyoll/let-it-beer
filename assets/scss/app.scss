@@ -1,10 +1,15 @@
 @import 'variables';
 @import 'fonts';
 
+* {
+    box-sizing: border-box;
+}
+
 html {
-    background: #fefefe;
+    background: #f1f1f1;
     font-family: $source-sans-pro-font-family;
     font-size: $base-font-size;
+    line-height: 1.5;
 }
 
 img {

@@ -39,7 +39,7 @@ class SearchBar extends Component {
           onChange={this.handleChange}
           ref="query"
         />
-        <Button message="Search"></Button>
+        <Button label="Search" large></Button>
       </form>
     )
   }
