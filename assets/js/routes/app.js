@@ -7,7 +7,7 @@ import styles from '../../scss/app.scss'
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className={styles.container}>
         <Navigation></Navigation>
 
         <h1 className={styles.title}>Let it beer!</h1>

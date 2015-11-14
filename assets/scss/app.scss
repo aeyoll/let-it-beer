@@ -12,6 +12,11 @@ img {
     max-width: 100%;
 }
 
+.container {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
 .title {
     font-family: $jockey-font-family;
     font-size: 48px;
