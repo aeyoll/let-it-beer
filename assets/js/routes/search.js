@@ -12,10 +12,6 @@ class Search extends Component {
       beers: [],
       userBeers: []
     }
-
-    this.handleUserInput  = this.handleUserInput.bind(this)
-    this.handleUserSubmit = this.handleUserSubmit.bind(this)
-    this.handleBeerAdd    = this.handleBeerAdd.bind(this)
   }
 
   componentDidMount() {
@@ -32,19 +28,19 @@ class Search extends Component {
     }.bind(this))
   }
 
-  handleUserInput(query) {
+  handleUserInput = (query) => {
     this.setState({
       query: query
     })
   }
 
-  handleUserSubmit(beers) {
+  handleUserSubmit = (beers) => {
     this.setState({
       beers: beers
     })
   }
 
-  handleBeerAdd(beer) {
+  handleBeerAdd = (beer) => {
     $.post('/api/beers/', beer)
 
     let userBeers = this.state.userBeers

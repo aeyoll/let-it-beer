@@ -5,11 +5,9 @@ import styles from './search-results-item.scss'
 class SearchResultsItem extends Component {
   constructor() {
     super()
-
-    this.handleBeerAdd = this.handleBeerAdd.bind(this)
   }
 
-  handleBeerAdd() {
+  handleBeerAdd = () => {
     this.props.onBeerAdd(this.props.beer)
   }
 
