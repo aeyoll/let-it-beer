@@ -1,10 +1,11 @@
 // React
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route } from 'react-router'
+import { Router, Route, IndexRoute } from 'react-router'
 
 // Routes
 import App from './routes/app'
+import Home from './routes/home'
 import Search from './routes/search'
 import List from './routes/list'
 import Detail from './routes/detail'
@@ -20,6 +21,7 @@ $.ajaxSetup({
 render((
   <Router>
     <Route path="/" component={App}>
+      <IndexRoute component={Home} />
       <Route path="search" component={Search} />
       <Route path="list" component={List} />
       <Route path="beer/:beerUuid" component={Detail} />
