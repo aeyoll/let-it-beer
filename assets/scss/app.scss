@@ -1,0 +1,20 @@
+@import 'variables';
+@import 'fonts';
+
+html {
+    background: #fcfbf7;
+    font-family: $vitesse-font-family;
+}
+
+img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.title {
+    font-family: $jockey-font-family;
+    font-size: 48px;
+    font-weight: 400;
+    text-transform: uppercase;
+}

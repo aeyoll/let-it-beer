@@ -1,0 +1,36 @@
+$font-path: 'http://localhost:8000/assets/fonts/';
+
+// Vitesse Sans Book
+@font-face {
+  font-family: 'VitesseSans';
+  src:  url('#{$font-path}vitessesans/VitesseSans-Book.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}vitessesans/VitesseSans-Book.otf')  format('opentype'),
+        url('#{$font-path}vitessesans/VitesseSans-Book.woff') format('woff'),
+        url('#{$font-path}vitessesans/VitesseSans-Book.ttf')  format('truetype'),
+        url('#{$font-path}vitessesans/VitesseSans-Book.svg#VitesseSans-Book') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Vitesse Sans Med
+@font-face {
+  font-family: 'VitesseSans';
+  src:  url('#{$font-path}vitessesans/VitesseSans-Medium.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}vitessesans/VitesseSans-Medium.woff') format('woff'),
+        url('#{$font-path}vitessesans/VitesseSans-Medium.ttf')  format('truetype'),
+        url('#{$font-path}vitessesans/VitesseSans-Medium.svg#VitesseSans-Medium') format('svg');
+  font-weight: 500;
+  font-style: 500;
+}
+
+// Jockey regular
+@font-face {
+  font-family: 'Jockey';
+  src:  url('#{$font-path}jockey/JockeyOne-Regular.eot?#iefix') format('embedded-opentype'),
+        url('#{$font-path}jockey/JockeyOne-Regular.otf')  format('opentype'),
+        url('#{$font-path}jockey/JockeyOne-Regular.woff') format('woff'),
+        url('#{$font-path}jockey/JockeyOne-Regular.ttf')  format('truetype'),
+        url('#{$font-path}jockey/JockeyOne-Regular.svg#JockeyOne-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
