@@ -36,6 +36,8 @@ class Detail extends Component {
       this.setState({
         beer: beer,
       })
+
+      this.props.actions.updateTitle(beer.name)
     }.bind(this))
   }
 

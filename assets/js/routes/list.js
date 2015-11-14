@@ -28,7 +28,6 @@ class List extends Component {
   render() {
     return (
       <div>
-        <h1>Beer list</h1>
         <BeerList beers={this.state.beers}></BeerList>
       </div>
     )

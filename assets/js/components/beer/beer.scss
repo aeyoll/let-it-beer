@@ -1,18 +1,10 @@
 @import '../../../scss/variables';
 
-$beer-name-size: 62px;
 $beer-style-size: 24px;
 $beer-photo-size: 150px;
 
 .common {
     text-align: center;
-}
-
-.name {
-    font-family: $jockey-font-family;
-    font-size: $beer-name-size;
-    font-weight: 500;
-    text-transform: uppercase;
 }
 
 .style {
