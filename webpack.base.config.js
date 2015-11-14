@@ -36,7 +36,8 @@ module.exports = {
   },
 
   postcss: [
-    require('autoprefixer')
+    require('autoprefixer'),
+    require('postcss-pxtorem')
   ],
 
   resolve: {
