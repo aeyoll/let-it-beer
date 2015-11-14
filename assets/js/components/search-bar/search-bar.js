@@ -29,6 +29,7 @@ class SearchBar extends Component {
     return (
       <form className={styles.common} onSubmit={this.handleSubmit}>
         <input
+          className={styles.input}
           type="text"
           placeholder="a beer..."
           value={this.props.query}
