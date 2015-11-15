@@ -1,22 +1,22 @@
 @import '../../../scss/variables';
 
 .common {
-    border-bottom: 1px solid #ddd;
-    color: $text-color;
-    display: flex;
-    flex-direction: row;
-    padding: 1em 0;
+  border-bottom: 1px solid #ddd;
+  color: $text-color;
+  display: flex;
+  flex-direction: row;
+  padding: 1em 0;
 
-    a {
-        color: currentColor;
-        text-decoration: none;
-    }
+  a {
+    color: currentColor;
+    text-decoration: none;
+  }
 }
 
 .infos {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .actions {}
@@ -24,6 +24,6 @@
 .title {}
 
 .subtitle {
-    color: lighten($text-color, 10%);
-    font-size: 14px;
+  color: lighten($text-color, 10%);
+  font-size: 14px;
 }

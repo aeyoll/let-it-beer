@@ -1,42 +1,42 @@
 @import '../../../scss/variables';
 
 .common {
-    background: none;
-    border-radius: 3px;
-    cursor: pointer;
-    display: inline-block;
-    font-size: $base-font-size;
-    overflow: hidden;
-    position: relative;
-    white-space: nowrap;
-    text-align: center;
-    text-transform: uppercase;
-    transition: box-shadow .2s $animation-curve-fast-out-linear-in,
-                background-color .2s $animation-curve-default,
-                color .2s $animation-curve-default;
+  background: none;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $base-font-size;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+  text-align: center;
+  text-transform: uppercase;
+  transition: box-shadow .2s $animation-curve-fast-out-linear-in,
+              background-color .2s $animation-curve-default,
+              color .2s $animation-curve-default;
 }
 
 .primary {
-    composes: common;
+  composes: common;
 
-    background: $primary-color;
-    border: 1px solid $primary-color;
-    color: #fff;
+  background: $primary-color;
+  border: 1px solid $primary-color;
+  color: #fff;
 
-    &:hover,
-    &:active,
-    &:focus {
-        background: darken($primary-color, 5%);
-        border: 1px solid darken($primary-color, 5%);
-    }
+  &:hover,
+  &:active,
+  &:focus {
+    background: darken($primary-color, 5%);
+    border: 1px solid darken($primary-color, 5%);
+  }
 }
 
 .large {
-    composes: common;
+  composes: common;
 
-    font-size: $base-font-size * 1.5;
-    font-weight: 700;
-    display: block;
-    padding: 1em;
-    width: 100%;
+  font-size: $base-font-size * 1.5;
+  font-weight: 700;
+  display: block;
+  padding: 1em;
+  width: 100%;
 }
