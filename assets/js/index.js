@@ -17,6 +17,7 @@ import Detail from './routes/detail'
 // Utils
 import $ from 'jquery'
 import cookie from 'jquery.cookie'
+import './polyfill'
 
 $.ajaxSetup({
   headers: { "X-CSRFToken": $.cookie("csrftoken") }

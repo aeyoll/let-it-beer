@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "babel-preset-stage-0": "^6.1.18",
+    "core-js": "^1.2.6",
     "history": "^1.13.1",
     "jquery": "^2.1.4",
     "jquery.cookie": "^1.4.1",
