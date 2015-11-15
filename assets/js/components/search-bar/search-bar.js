@@ -13,8 +13,8 @@ class SearchBar extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
 
-    var query = this.refs.query.value
-    var beers = []
+    let query = this.refs.query.value,
+        beers = []
 
     $.post('/api/search/', { query: query }, (data) => {
       this.props.onUserSubmit(data)
