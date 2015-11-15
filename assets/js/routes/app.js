@@ -25,7 +25,9 @@ class App extends Component {
         <div className={styles.container}>
           <Title title={title}></Title>
 
-          {React.cloneElement(this.props.children, { actions })}
+          <div className={styles.content}>
+            {React.cloneElement(this.props.children, { actions })}
+          </div>
         </div>
       </div>
     )

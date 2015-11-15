@@ -20,14 +20,13 @@ img {
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
     margin: 0 auto;
     padding: 0 1em;
     max-width: 800px;
 }
 
-.title {
-    font-family: $jockey-font-family;
-    font-size: 48px;
-    font-weight: 400;
-    text-transform: uppercase;
+.content {
+    flex: 1;
 }
