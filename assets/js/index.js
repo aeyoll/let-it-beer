@@ -24,9 +24,13 @@ $.ajaxSetup({
 
 const store = configureStore()
 
+// History
+import createBrowserHistory from 'history/lib/createBrowserHistory'
+let history = createBrowserHistory()
+
 render((
   <Provider store={store}>
-    <Router>
+    <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
         <Route path="search" component={Search} />
