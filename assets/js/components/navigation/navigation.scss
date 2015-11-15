@@ -1,5 +1,7 @@
+@import '../../../scss/variables';
+
 .common {
-    background: #30323a;
+    background: $primary-color;
     color: #fff;
     display: flex;
     list-style: none;
@@ -10,10 +12,12 @@
 
 .item {
     color: #fff;
+    display: block;
     padding: 1em;
+    text-decoration: none;
+    transition: background-color .2s $animation-curve-default;
+}
 
-    a {
-        color: currentColor;
-        text-decoration: none;
-    }
+.active {
+    background: lighten($primary-color, 5%);
 }
