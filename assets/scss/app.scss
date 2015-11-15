@@ -2,31 +2,51 @@
 @import 'fonts';
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    background: #f1f1f1;
-    font-family: $source-sans-pro-font-family;
-    font-size: $base-font-size;
-    line-height: 1.5;
+  background: #f1f1f1;
+  font-family: $source-sans-pro-font-family;
+  font-size: $base-font-size;
+  height: 100%;
+  line-height: 1.5;
+  width: 100%;
 }
 
 img {
-    display: block;
-    height: auto;
-    max-width: 100%;
+  display: block;
+  height: auto;
+  max-width: 100%;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    padding: 0 1em;
-    max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 0 1em;
+  max-width: 800px;
 }
 
 .content {
-    flex: 1;
+  flex: 1;
+}
+
+.main {
+  background: #f1f1f1;
+  position: absolute;
+  height: 100%;
+  transition: all .3s $animation-curve-default;
+  width: 100%;
+}
+
+@each $beer in $beers {
+  $type: nth($beer, 1);
+  $values: nth($beer, 2);
+
+  &.is-#{$type} {
+    background: map-get($values, background);
+    color: map-get($values, color);
+  }
 }

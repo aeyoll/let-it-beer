@@ -16,9 +16,10 @@ class Search extends Component {
 
   componentDidMount() {
     this.props.actions.updateTitle('Search a beer')
+    this.props.actions.updateAppClass('');
 
     $.get('/api/beers', function(data) {
-      var beers = data.results
+      let beers = data.results
 
       if (beers.length) {
         this.setState({

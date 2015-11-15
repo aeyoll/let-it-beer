@@ -1,4 +1,4 @@
-import { UPDATE_TITLE } from '../constants/title'
+import { UPDATE_TITLE } from '../constants/ActionTypes'
 
 const initialState = 'Let it beer!'
 

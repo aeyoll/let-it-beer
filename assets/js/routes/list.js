@@ -13,6 +13,7 @@ class List extends Component {
 
   componentDidMount() {
     this.props.actions.updateTitle('Beer list')
+    this.props.actions.updateAppClass('');
 
     $.get('/api/beers', function(data) {
       var beers = data.results

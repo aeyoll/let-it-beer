@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Beer from '../components/beer/beer'
 import $ from 'jquery'
+import slug from 'slug'
 
 class Detail extends Component {
   constructor() {
@@ -38,6 +39,7 @@ class Detail extends Component {
       })
 
       this.props.actions.updateTitle(beer.name)
+      this.props.actions.updateAppClass(slug('is-' + this.state.beer.style).toLowerCase())
     }.bind(this))
   }
 

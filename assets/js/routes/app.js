@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 // Redux
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import * as TitleActions from '../actions/title'
+import * as Actions from '../actions/index'
 
 // Components
 import Navigation from '../components/navigation/navigation'
@@ -16,10 +16,16 @@ import styles from '../../scss/app.scss'
 
 class App extends Component {
   render() {
-    const { title, actions } = this.props
+    const { title, style, actions } = this.props
+
+    let className = styles.main
+
+    if (style && styles[style] !== undefined) {
+      className += ` ${styles[style]}`;
+    }
 
     return (
-      <div>
+      <div className={className}>
         <Navigation></Navigation>
 
         <div className={styles.container}>
@@ -36,13 +42,14 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    title: state.title
+    title: state.title,
+    style: state.style
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(TitleActions, dispatch)
+    actions: bindActionCreators(Actions, dispatch)
   }
 }
 

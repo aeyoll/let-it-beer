@@ -17,3 +17,22 @@ $animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
 $animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
 $animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
 $animation-curve-default: $animation-curve-fast-out-slow-in !default;
+
+// Beers
+$beers: (
+  india-pale-ale-ipa: (
+    background:  #f8c601,
+    color:       #0c0b25,
+    alternative: #d75342,
+  ),
+  barley-wine: (
+    background:  #833d31,
+    color:       #fff,
+    alternative: #d75342,
+  ),
+  imperial-stout: (
+    background:  #191919,
+    color:       #fff,
+    alternative: #eac0a8,
+  ),
+) !default;

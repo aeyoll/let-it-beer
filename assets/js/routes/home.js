@@ -8,6 +8,7 @@ class Home extends Component {
 
   componentDidMount() {
     this.props.actions.updateTitle('Let it beer!')
+    this.props.actions.updateAppClass('');
   }
 
   goToSearch = () => {
