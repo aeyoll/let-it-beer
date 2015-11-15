@@ -33,9 +33,9 @@ render((
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
-        <Route path="search" component={Search} />
-        <Route path="list" component={List} />
-        <Route path="beer/:beerUuid" component={Detail} />
+        <Route path="search/" component={Search} />
+        <Route path="list/" component={List} />
+        <Route path="beer/:beerUuid/" component={Detail} />
       </Route>
     </Router>
   </Provider>
