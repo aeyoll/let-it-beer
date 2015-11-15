@@ -10,7 +10,7 @@ class Home extends Component {
     return (
       <div>
         <img src="/assets/images/home.png" alt="Let it beer!" />
-        <Button label="Search a beer" large ripple></Button>
+        <Button label="Search a beer" large></Button>
       </div>
     )
   }

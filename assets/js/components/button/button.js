@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Ripple from 'react-toolbox/lib/ripple';
 import styles from './button.scss'
 
 class Button extends Component {
@@ -9,15 +8,13 @@ class Button extends Component {
     kind: React.PropTypes.string,
     label: React.PropTypes.string,
     large: React.PropTypes.bool,
-    loading: React.PropTypes.bool,
-    ripple: React.PropTypes.bool
+    loading: React.PropTypes.bool
   }
 
   static defaultProps = {
     kind: 'primary',
     loading: false,
-    large: false,
-    ripple: true
+    large: false
   }
 
   constructor () {
@@ -26,10 +23,6 @@ class Button extends Component {
 
   handleMouseDown = (event) => {
     event.preventDefault()
-
-    if (this.refs.ripple) {
-      this.refs.ripple.start(event)
-    }
 
     if (this.props.onMouseDown) {
       this.props.onMouseDown(event)
@@ -47,12 +40,11 @@ class Button extends Component {
 
     return (
       <button
-        {...others}
         className={className}
         disabled={this.props.disabled || this.props.loading}
         onMouseDown={this.handleMouseDown}
+        {...others}
       >
-        { ripple ? <Ripple ref='ripple' loading={loading}/> : null }
         { label ? <abbr className={styles.label}>{label}</abbr> : null }
       </button>
     )
