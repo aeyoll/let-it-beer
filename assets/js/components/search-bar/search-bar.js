@@ -8,23 +8,20 @@ import $ from 'jquery'
 class SearchBar extends Component {
   constructor() {
     super()
-
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault()
 
     var query = this.refs.query.value
     var beers = []
 
-    $.post('/api/search/', { query: query }, function (data) {
+    $.post('/api/search/', { query: query }, (data) => {
       this.props.onUserSubmit(data)
-    }.bind(this))
+    })
   }
 
-  handleChange() {
+  handleChange = () => {
     this.props.onUserInput(event.target.value)
   }
 
