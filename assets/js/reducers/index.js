@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-// import { default as style } from './style'
-// import { default as title } from './title'
+import auth from './auth'
 import style from './style'
 import title from './title'
 
 const rootReducer = combineReducers({
+  auth,
   style,
   title
 })

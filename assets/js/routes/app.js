@@ -42,8 +42,10 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    title: state.title,
-    style: state.style
+    auth: state.auth,
+    router: state.router,
+    style: state.style,
+    title: state.title
   }
 }
 

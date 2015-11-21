@@ -1,6 +1,6 @@
 import { UPDATE_APP_CLASS } from '../constants/ActionTypes'
 
-const initialState = 'test'
+const initialState = ''
 
 export default function style(state = initialState, action) {
   switch (action.type) {
