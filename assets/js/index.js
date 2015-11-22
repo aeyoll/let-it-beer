@@ -14,6 +14,7 @@ import LoginRoute from './routes/LoginRoute'
 import SearchRoute from './routes/SearchRoute'
 import ListRoute from './routes/ListRoute'
 import DetailRoute from './routes/DetailRoute'
+import NotFoundRoute from './routes/NotFoundRoute'
 
 // Utils
 import $ from 'jquery'
@@ -39,6 +40,8 @@ render((
         <Route path="search/" component={SearchRoute} />
         <Route path="list/" component={ListRoute} />
         <Route path="beer/:beerUuid/" component={DetailRoute} />
+
+        <Route path="*" component={NotFoundRoute} status={404} />
       </Route>
     </Router>
   </Provider>
