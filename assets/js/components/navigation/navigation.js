@@ -7,6 +7,7 @@ class Navigation extends Component {
     return (
       <ul className={styles.common}>
         <li><Link to="/" className={styles.item} activeClassName={styles.active}>Home</Link></li>
+        <li><Link to="/login/" className={styles.item} activeClassName={styles.active}>Login</Link></li>
         <li><Link to="/list/" className={styles.item} activeClassName={styles.active}>List your beers</Link></li>
         <li><Link to="/search/" className={styles.item} activeClassName={styles.active}>Search a beer</Link></li>
       </ul>

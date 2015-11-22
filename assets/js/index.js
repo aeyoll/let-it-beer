@@ -10,6 +10,7 @@ import configureStore from './store/configureStore'
 // Routes
 import App from './routes/App'
 import HomeRoute from './routes/HomeRoute'
+import LoginRoute from './routes/LoginRoute'
 import SearchRoute from './routes/SearchRoute'
 import ListRoute from './routes/ListRoute'
 import DetailRoute from './routes/DetailRoute'
@@ -34,6 +35,7 @@ render((
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={HomeRoute} />
+        <Route path="login/" component={LoginRoute} />
         <Route path="search/" component={SearchRoute} />
         <Route path="list/" component={ListRoute} />
         <Route path="beer/:beerUuid/" component={DetailRoute} />
