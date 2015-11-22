@@ -27,11 +27,10 @@ export default function reducer(state = initialState, action = {}) {
       }
 
     case LOGIN_USER_SUCCESS:
-      Cookie.set('token', action.payload.token)
+      Cookie.set('token', action.payload.token, { expires: 365 })
 
       try {
         let decoded = jwtDecode(action.payload.token);
-        console.log(decoded)
 
         return {
           ...state,
