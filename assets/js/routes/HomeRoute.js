@@ -7,7 +7,7 @@ class HomeRoute extends Component {
   }
 
   componentDidMount() {
-    this.props.actions.updateTitle('Let it beer!')
+    this.props.actions.updateAppTitle('Let it beer!')
     this.props.actions.updateAppClass('');
   }
 

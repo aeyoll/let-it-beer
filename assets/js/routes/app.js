@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 // Redux
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import * as Actions from '../actions/index'
+import * as AppActions from '../ducks/app'
 
 // Components
 import Navigation from '../components/navigation/navigation'
@@ -16,12 +16,12 @@ import styles from '../../scss/app.scss'
 
 class App extends Component {
   render() {
-    const { title, style, actions } = this.props
+    const { app, actions } = this.props
 
     let className = styles.main
 
-    if (style && styles[style] !== undefined) {
-      className += ` ${styles[style]}`;
+    if (app.style && styles[app.style] !== undefined) {
+      className += ` ${styles[app.style]}`;
     }
 
     return (
@@ -29,7 +29,7 @@ class App extends Component {
         <Navigation></Navigation>
 
         <div className={styles.container}>
-          <Title title={title}></Title>
+          <Title title={app.title}></Title>
 
           <div className={styles.content}>
             {React.cloneElement(this.props.children, { actions })}
@@ -42,14 +42,13 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    title: state.title,
-    style: state.style
+    app: state.app
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(Actions, dispatch)
+    actions: bindActionCreators(AppActions, dispatch)
   }
 }
 

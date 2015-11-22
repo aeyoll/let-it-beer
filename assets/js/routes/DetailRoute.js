@@ -38,7 +38,7 @@ class DetailRoute extends Component {
         beer: beer,
       })
 
-      this.props.actions.updateTitle(beer.name)
+      this.props.actions.updateAppTitle(beer.name)
       this.props.actions.updateAppClass(slug('is-' + this.state.beer.style).toLowerCase())
     }.bind(this))
   }

@@ -1,2 +1,0 @@
-export const UPDATE_APP_CLASS = 'UPDATE_APP_CLASS'
-export const UPDATE_TITLE     = 'UPDATE_TITLE'

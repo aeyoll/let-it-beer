@@ -15,7 +15,7 @@ class SearchRoute extends Component {
   }
 
   componentDidMount() {
-    this.props.actions.updateTitle('Search a beer')
+    this.props.actions.updateAppTitle('Search a beer')
     this.props.actions.updateAppClass('');
 
     $.get('/api/beers', function(data) {

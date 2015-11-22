@@ -12,7 +12,7 @@ class ListRoute extends Component {
   }
 
   componentDidMount() {
-    this.props.actions.updateTitle('Beer list')
+    this.props.actions.updateAppTitle('Beer list')
     this.props.actions.updateAppClass('');
 
     $.get('/api/beers', function(data) {
