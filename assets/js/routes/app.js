@@ -27,7 +27,7 @@ class App extends Component {
 
     return (
       <div className={className}>
-        <Navigation></Navigation>
+        <Navigation isAuthenticated={this.props.auth.isAuthenticated}></Navigation>
 
         <div className={styles.container}>
           <Title title={app.title}></Title>
@@ -43,7 +43,8 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    app: state.app
+    app: state.app,
+    auth: state.auth
   }
 }
 

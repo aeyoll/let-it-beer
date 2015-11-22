@@ -127,6 +127,3 @@ export function login(username, password, redirect) {
   }
 }
 
-export function loggedIn() {
-  return !!Cookie.get('token')
-}
