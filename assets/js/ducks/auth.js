@@ -40,7 +40,7 @@ export default function reducer(state = initialState, action = {}) {
           ...state,
           'isAuthenticating': false,
           'isAuthenticated': true,
-          'token': action.token,
+          'token': action.payload.token,
           'username': decoded.username,
           'statusText': `You have been successfully signed in as ${decoded.username}.`
         }
