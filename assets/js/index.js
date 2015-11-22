@@ -22,6 +22,9 @@ import $ from 'jquery'
 import Cookie from 'js-cookie'
 import './polyfill'
 
+// React components for Redux DevTools
+import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
+
 $.ajaxSetup({
   headers: { "X-CSRFToken": Cookie.get("csrftoken") }
 })
@@ -47,21 +50,26 @@ const requireLogin = (nextState, replaceState) => {
 }
 
 render((
-  <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={App}>
-        <IndexRoute component={HomeRoute} />
+  <div>
+    <Provider store={store}>
+      <Router history={history}>
+        <Route path="/" component={App}>
+          <IndexRoute component={HomeRoute} />
 
-        <Route onEnter={requireLogin}>
-          <Route path="search/" component={SearchRoute} />
-          <Route path="list/" component={ListRoute} />
-          <Route path="beer/:beerUuid/" component={DetailRoute} />
+          <Route onEnter={requireLogin}>
+            <Route path="search/" component={SearchRoute} />
+            <Route path="list/" component={ListRoute} />
+            <Route path="beer/:beerUuid/" component={DetailRoute} />
+          </Route>
+
+          <Route path="login/" component={LoginRoute} />
+
+          <Route path="*" component={NotFoundRoute} status={404} />
         </Route>
-
-        <Route path="login/" component={LoginRoute} />
-
-        <Route path="*" component={NotFoundRoute} status={404} />
-      </Route>
-    </Router>
-  </Provider>
+      </Router>
+    </Provider>
+    <DebugPanel top right bottom>
+      <DevTools store={store} monitor={LogMonitor} />
+    </DebugPanel>
+  </div>
 ), document.getElementById('react-app'))
