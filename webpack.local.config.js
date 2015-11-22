@@ -20,6 +20,10 @@ config.output.publicPath = 'http://localhost:3000/assets/bundles/'
 config.plugins = config.plugins.concat([
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoErrorsPlugin(),
+  new webpack.DefinePlugin({
+    __DEVTOOLS__: true,
+    __DEVELOPMENT__: true
+  }),
   new BundleTracker({filename: './webpack-stats.json'}),
 ])
 

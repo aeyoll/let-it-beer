@@ -10,18 +10,26 @@ import rootReducer from '../ducks'
 import thunk from 'redux-thunk'
 
 export default function configureStore(initialState) {
-  const createStoreWithMiddleware = compose(
-    // Enables your middleware
-    applyMiddleware(thunk),
-    // Provides support for DevTools:
-    devTools(),
-    // Lets you write ?debug_session=<name> in address bar to persist debug sessions
-    persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
-  )(createStore);
+  let createStoreWithMiddleware
+
+  if (__DEVELOPMENT__ && __DEVTOOLS__) {
+    createStoreWithMiddleware = compose(
+      // Enables your middleware
+      applyMiddleware(thunk),
+      // Provides support for DevTools:
+      devTools(),
+      // Lets you write ?debug_session=<name> in address bar to persist debug sessions
+      persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
+    )(createStore);
+  } else {
+    createStoreWithMiddleware = compose(
+      applyMiddleware(thunk),
+    )(createStore);
+  }
 
   const store = createStoreWithMiddleware(rootReducer)
 
-  if (module.hot) {
+  if (__DEVELOPMENT__ && module.hot) {
     // Enable Webpack hot module replacement for reducers
     module.hot.accept('../ducks', () => {
       const nextReducer = require('../ducks')

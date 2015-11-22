@@ -10,6 +10,8 @@ config.plugins = config.plugins.concat([
 
   // removes a lot of debugging code in React
   new webpack.DefinePlugin({
+    __DEVTOOLS__: false,
+    __DEVELOPMENT__: false,
     'process.env': {
       'NODE_ENV': JSON.stringify('production')
     }
