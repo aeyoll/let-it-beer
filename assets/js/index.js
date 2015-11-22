@@ -31,20 +31,19 @@ import createBrowserHistory from 'history/lib/createBrowserHistory'
 let history = createBrowserHistory()
 
 // Authentication
-import { isLoaded as isAuthLoaded, load as loadAuth } from './ducks/auth'
+import { loginUserSuccess } from './ducks/auth';
+let token = Cookie.get('token');
 
-const requireLogin = (nextState, replaceState, cb) => {
-  function checkAuth() {
-    const { auth: { token }} = store.getState()
-    if (!token) {
-      // oops, not logged in, so can't be here!
-      replaceState(null, '/')
-    }
+if (token !== null) {
+  store.dispatch(loginUserSuccess(token));
+}
 
-    cb()
+const requireLogin = (nextState, replaceState) => {
+  const { auth: { isAuthenticated }} = store.getState()
+
+  if (!isAuthenticated) {
+    replaceState({ nextPathname: nextState.location.pathname }, '/login/')
   }
-
-  // Do a redirect here
 }
 
 render((

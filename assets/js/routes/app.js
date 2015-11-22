@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import * as AppActions from '../ducks/app'
+import * as AuthActions from '../ducks/auth'
 
 // Components
 import Navigation from '../components/navigation/navigation'

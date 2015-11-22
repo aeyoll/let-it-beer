@@ -29,6 +29,10 @@ export default function reducer(state = initialState, action = {}) {
     case LOGIN_USER_SUCCESS:
       Cookie.set('token', action.payload.token, { expires: 365 })
 
+      $.ajaxSetup({
+        headers: { 'Authorization': 'JWT ' + action.payload.token }
+      })
+
       try {
         let decoded = jwtDecode(action.payload.token);
 
@@ -121,4 +125,8 @@ export function login(username, password, redirect) {
         dispatch(loginUserFailure(error));
       })
   }
+}
+
+export function loggedIn() {
+  return !!Cookie.get('token')
 }
