@@ -18,7 +18,7 @@ class SearchRoute extends Component {
     this.props.actions.updateAppTitle('Search a beer')
     this.props.actions.updateAppClass('');
 
-    $.get('/api/beers', function(data) {
+    $.get(this.props.app.api + '/beers', function(data) {
       let beers = data.results
 
       if (beers.length) {
@@ -42,7 +42,7 @@ class SearchRoute extends Component {
   }
 
   handleBeerAdd = (beer) => {
-    $.post('/api/beers/', beer)
+    $.post(this.props.app.api + '/beers/', beer)
 
     let userBeers = this.state.userBeers
     userBeers.push(beer)

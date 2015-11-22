@@ -33,7 +33,7 @@ class App extends Component {
           <Title title={app.title}></Title>
 
           <div className={styles.content}>
-            {React.cloneElement(this.props.children, { actions })}
+            {React.cloneElement(this.props.children, { actions: actions, app: app })}
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ const UPDATE_APP_CLASS = 'UPDATE_APP_CLASS'
 const UPDATE_APP_TITLE = 'UPDATE_APP_TITLE'
 
 const initialState = {
+  api: '/api/v1',
   style: '',
   title: 'Let it beer!'
 }

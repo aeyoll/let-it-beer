@@ -15,7 +15,7 @@ class DetailRoute extends Component {
   fetchData() {
     const uuid = this.props.params.beerUuid
 
-    $.get('/api/beers/' + uuid + '/fetch_data/', function(data) {
+    $.get(this.props.app.api + '/beers/' + uuid + '/fetch_data/', function(data) {
       var beer = data
 
       this.setState({
@@ -27,7 +27,7 @@ class DetailRoute extends Component {
   componentDidMount() {
     const uuid = this.props.params.beerUuid
 
-    $.get('/api/beers/' + uuid, function(data) {
+    $.get(this.props.app.api + '/beers/' + uuid, function(data) {
       var beer = data
 
       if (beer._has_fetched === false) {

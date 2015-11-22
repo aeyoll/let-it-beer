@@ -15,7 +15,7 @@ class ListRoute extends Component {
     this.props.actions.updateAppTitle('Beer list')
     this.props.actions.updateAppClass('');
 
-    $.get('/api/beers', function(data) {
+    $.get(this.props.app.api + '/beers', function(data) {
       var beers = data.results
 
       if (beers.length) {
