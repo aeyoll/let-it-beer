@@ -1,5 +1,13 @@
+// React
 import React, { Component } from 'react'
+
+// Components
 import Login from '../components/login/login'
+
+// Redux
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import * as AuthActions from '../ducks/auth'
 
 class LoginRoute extends Component {
   constructor() {
@@ -11,11 +19,36 @@ class LoginRoute extends Component {
     this.props.actions.updateAppClass('')
   }
 
+  handleLogin = (email, password) => {
+    const router = this.context.router;
+    this.props.authActions.login(email, password, router);
+  }
+
   render() {
     return (
-      <div></div>
+      <div>
+        <Login
+          auth={this.props}
+          handleLogin={this.handleLogin}
+        />
+      </div>
     )
   }
 }
 
-export default LoginRoute
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    authActions: bindActionCreators(AuthActions, dispatch)
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginRoute)
