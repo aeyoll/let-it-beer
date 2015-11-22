@@ -50,28 +50,40 @@ const requireLogin = (nextState, replaceState) => {
   }
 }
 
+const routes = (
+  <Route path="/" component={App}>
+    <IndexRoute component={HomeRoute} />
+
+    <Route onEnter={requireLogin}>
+      <Route path="search/" component={SearchRoute} />
+      <Route path="list/" component={ListRoute} />
+      <Route path="beer/:beerUuid/" component={DetailRoute} />
+    </Route>
+
+    <Route path="login/" component={LoginRoute} />
+    <Route path="logout/" component={LogoutRoute} />
+
+    <Route path="*" component={NotFoundRoute} status={404} />
+  </Route>
+)
+
+const router = (
+  <Router history={history}>
+    {routes}
+  </Router>
+)
+
+const provider = (
+  <Provider store={store}>
+    {router}
+  </Provider>
+)
+
 render((
-  <div>
-    <Provider store={store}>
-      <Router history={history}>
-        <Route path="/" component={App}>
-          <IndexRoute component={HomeRoute} />
-
-          <Route onEnter={requireLogin}>
-            <Route path="search/" component={SearchRoute} />
-            <Route path="list/" component={ListRoute} />
-            <Route path="beer/:beerUuid/" component={DetailRoute} />
-          </Route>
-
-          <Route path="login/" component={LoginRoute} />
-          <Route path="logout/" component={LogoutRoute} />
-
-          <Route path="*" component={NotFoundRoute} status={404} />
-        </Route>
-      </Router>
-    </Provider>
-    <DebugPanel top right bottom>
-      <DevTools store={store} monitor={LogMonitor} />
-    </DebugPanel>
-  </div>
+    <div>
+      {provider}
+      { __DEVTOOLS__ && <DebugPanel top right bottom>
+        <DevTools store={store} monitor={LogMonitor} />
+      </DebugPanel> }
+    </div>
 ), document.getElementById('react-app'))
