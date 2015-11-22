@@ -12,6 +12,7 @@ const store = configureStore()
 import App from './routes/App'
 import HomeRoute from './routes/HomeRoute'
 import LoginRoute from './routes/LoginRoute'
+import LogoutRoute from './routes/LogoutRoute'
 import SearchRoute from './routes/SearchRoute'
 import ListRoute from './routes/ListRoute'
 import DetailRoute from './routes/DetailRoute'
@@ -63,6 +64,7 @@ render((
           </Route>
 
           <Route path="login/" component={LoginRoute} />
+          <Route path="logout/" component={LogoutRoute} />
 
           <Route path="*" component={NotFoundRoute} status={404} />
         </Route>
