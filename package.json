@@ -33,6 +33,7 @@
     "history": "^1.13.1",
     "jquery": "^2.1.4",
     "jquery.cookie": "^1.4.1",
+    "jwt-decode": "^1.4.0",
     "normalize.css": "^3.0.3",
     "react": "^0.14.3",
     "react-addons-css-transition-group": "^0.14.3",

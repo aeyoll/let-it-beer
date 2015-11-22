@@ -6,6 +6,7 @@ import { Router, Route, IndexRoute } from 'react-router'
 // Redux
 import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
+const store = configureStore()
 
 // Routes
 import App from './routes/App'
@@ -25,21 +26,40 @@ $.ajaxSetup({
   headers: { "X-CSRFToken": $.cookie("csrftoken") }
 })
 
-const store = configureStore()
-
 // History
 import createBrowserHistory from 'history/lib/createBrowserHistory'
 let history = createBrowserHistory()
+
+// Authentication
+import { isLoaded as isAuthLoaded, load as loadAuth } from './ducks/auth'
+
+const requireLogin = (nextState, replaceState, cb) => {
+  function checkAuth() {
+    const { auth: { token }} = store.getState()
+    if (!token) {
+      // oops, not logged in, so can't be here!
+      replaceState(null, '/')
+    }
+
+    cb()
+  }
+
+  // Do a redirect here
+}
 
 render((
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={HomeRoute} />
+
+        <Route onEnter={requireLogin}>
+          <Route path="search/" component={SearchRoute} />
+          <Route path="list/" component={ListRoute} />
+          <Route path="beer/:beerUuid/" component={DetailRoute} />
+        </Route>
+
         <Route path="login/" component={LoginRoute} />
-        <Route path="search/" component={SearchRoute} />
-        <Route path="list/" component={ListRoute} />
-        <Route path="beer/:beerUuid/" component={DetailRoute} />
 
         <Route path="*" component={NotFoundRoute} status={404} />
       </Route>
