@@ -4,18 +4,31 @@ import styles from './navigation.scss'
 
 class Navigation extends Component {
   render() {
+    let links
+    let defaultLinks = [
+      { to: '/', label: 'Home' }
+    ]
+    let extraLinks = []
+
+    if (this.props.isAuthenticated) {
+      extraLinks = [
+        { to: '/logout/', label: 'Logout' },
+        { to: '/list/', label: 'List your beers' },
+        { to: '/search/', label: 'Search a beer' }
+      ]
+    } else {
+      extraLinks = [
+        { to: '/login/', label: 'Login' },
+      ]
+    }
+
+    links = defaultLinks.concat(extraLinks)
+
     return (
       <ul className={styles.common}>
-        <li><Link to="/" className={styles.item} activeClassName={styles.active}>Home</Link></li>
-
-        {this.props.isAuthenticated ? (
-          <li><Link to="/logout/" className={styles.item} activeClassName={styles.active}>Logout</Link></li>
-        ) : (
-          <li><Link to="/login/" className={styles.item} activeClassName={styles.active}>Login</Link></li>
-        )}
-
-        <li><Link to="/list/" className={styles.item} activeClassName={styles.active}>List your beers</Link></li>
-        <li><Link to="/search/" className={styles.item} activeClassName={styles.active}>Search a beer</Link></li>
+        {links.map((link) => {
+          return <li key={link.label}><Link to={link.to} className={styles.item} activeClassName={styles.active}>{link.label}</Link></li>
+        })}
       </ul>
     )
   }
