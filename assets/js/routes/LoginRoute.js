@@ -19,9 +19,9 @@ class LoginRoute extends Component {
     this.props.actions.updateAppClass('')
   }
 
-  handleLogin = (email, password) => {
+  handleLogin = (username, password) => {
     const router = this.context.router;
-    this.props.authActions.login(email, password, router);
+    this.props.authActions.login(username, password, router);
   }
 
   render() {

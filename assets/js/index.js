@@ -19,11 +19,11 @@ import NotFoundRoute from './routes/NotFoundRoute'
 
 // Utils
 import $ from 'jquery'
-import cookie from 'jquery.cookie'
+import Cookie from 'js-cookie'
 import './polyfill'
 
 $.ajaxSetup({
-  headers: { "X-CSRFToken": $.cookie("csrftoken") }
+  headers: { "X-CSRFToken": Cookie.get("csrftoken") }
 })
 
 // History

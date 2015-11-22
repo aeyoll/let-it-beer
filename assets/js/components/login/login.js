@@ -6,7 +6,7 @@ class Login extends Component {
   constructor() {
     super()
     this.state = {
-      email: '',
+      username: '',
       password: ''
     }
   }
@@ -18,14 +18,14 @@ class Login extends Component {
 
   handleLogin = e => {
     e.preventDefault()
-    const { email, password } = this.state
+    const { username, password } = this.state
 
-    this.props.authActions.login(email, password)
+    this.props.auth.authActions.login(username, password)
   }
 
   render() {
     const { auth: { statusText } } = this.props
-    const { email, password } = this.state
+    const { username, password } = this.state
 
     return (
       <div>
@@ -34,15 +34,15 @@ class Login extends Component {
           : null}
 
         <form onSubmit={this.handleLogin}>
-          <label htmlFor="email">E-mail</label>
+          <label htmlFor="username">Username</label>
 
           <input
             styleName="input"
-            value={email}
-            onChange={this.handleChange('email')}
-            id="email"
-            type="email"
-            placeholder="Email"
+            value={username}
+            onChange={this.handleChange('username')}
+            id="username"
+            type="username"
+            placeholder="Username"
             required
           />
 

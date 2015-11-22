@@ -1,3 +1,8 @@
+import $ from 'jquery'
+import Cookie from 'js-cookie'
+import { pushState } from 'redux-router'
+import jwtDecode from 'jwt-decode';
+
 const LOGIN_USER_REQUEST = 'LOGIN_USER_REQUEST'
 const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS'
 const LOGIN_USER_FAILURE = 'LOGIN_USER_FAILURE'
@@ -22,28 +27,29 @@ export default function reducer(state = initialState, action = {}) {
       }
 
     case LOGIN_USER_SUCCESS:
-      localStorage.setItem('token', action.token)
+      Cookie.set('token', action.payload.token)
 
       try {
-        let decoded = jwtDecode(action.token);
+        let decoded = jwtDecode(action.payload.token);
+        console.log(decoded)
 
         return {
           ...state,
           'isAuthenticating': false,
           'isAuthenticated': true,
           'token': action.token,
-          'userName': decoded.userName,
-          'statusText': `You have been successfully signed in as ${decoded.userName}.`
+          'username': decoded.username,
+          'statusText': `You have been successfully signed in as ${decoded.username}.`
         }
       } catch (e) {
-        localStorage.removeItem('token');
+        Cookie.remove('token');
 
         return {
           ...state,
           'isAuthenticating': false,
           'isAuthenticated': false,
           'token': null,
-          'userName': null,
+          'username': null,
           'statusText': `Invalid access token. Please log in again.`
         }
       }
@@ -54,7 +60,7 @@ export default function reducer(state = initialState, action = {}) {
         'isAuthenticating': false,
         'isAuthenticated': false,
         'token': null,
-        'userName': null,
+        'username': null,
         'statusText': `Authentication Error: ${action.status} ${action.statusText}`
       }
 
@@ -63,7 +69,7 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         'isAuthenticated': false,
         'token': null,
-        'userName': null,
+        'username': null,
         'statusText': 'You have been successfully logged out.'
       }
     default:
@@ -99,5 +105,21 @@ export function loginUserRequest() {
 export function logout() {
   return {
     type: LOGOUT_USER
+  }
+}
+
+export function login(username, password, redirect) {
+  return function(dispatch) {
+    dispatch(loginUserRequest());
+
+    return $.post('/api-token-auth/', { username: username, password: password })
+      .done(response => {
+        let redirect = redirect || '/';
+        dispatch(loginUserSuccess(response.token));
+        dispatch(pushState(null, redirect));
+      })
+      .fail(error => {
+        dispatch(loginUserFailure(error));
+      })
   }
 }
