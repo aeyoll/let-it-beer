@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Button from '../components/button/button'
 
-class Home extends Component {
+class HomeRoute extends Component {
   constructor() {
     super()
   }
@@ -25,4 +25,4 @@ class Home extends Component {
   }
 }
 
-export default Home
+export default HomeRoute

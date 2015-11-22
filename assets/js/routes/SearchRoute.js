@@ -3,7 +3,7 @@ import SearchBar from '../components/search-bar/search-bar'
 import SearchResults from '../components/search-results/search-results'
 import $ from 'jquery'
 
-class Search extends Component {
+class SearchRoute extends Component {
   constructor() {
     super()
 
@@ -62,4 +62,4 @@ class Search extends Component {
   }
 }
 
-export default Search
+export default SearchRoute

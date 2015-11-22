@@ -3,7 +3,7 @@ import Beer from '../components/beer/beer'
 import $ from 'jquery'
 import slug from 'slug'
 
-class Detail extends Component {
+class DetailRoute extends Component {
   constructor() {
     super()
 
@@ -52,4 +52,4 @@ class Detail extends Component {
   }
 }
 
-export default Detail
+export default DetailRoute

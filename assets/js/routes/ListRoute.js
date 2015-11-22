@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import BeerList from '../components/beer-list/beer-list'
 import $ from 'jquery'
 
-class List extends Component {
+class ListRoute extends Component {
   constructor() {
     super()
 
@@ -35,4 +35,4 @@ class List extends Component {
   }
 }
 
-export default List
+export default ListRoute

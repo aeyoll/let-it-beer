@@ -8,11 +8,11 @@ import { Provider } from 'react-redux'
 import configureStore from './store/configureStore'
 
 // Routes
-import App from './routes/app'
-import Home from './routes/home'
-import Search from './routes/search'
-import List from './routes/list'
-import Detail from './routes/detail'
+import App from './routes/App'
+import HomeRoute from './routes/HomeRoute'
+import SearchRoute from './routes/SearchRoute'
+import ListRoute from './routes/ListRoute'
+import DetailRoute from './routes/DetailRoute'
 
 // Utils
 import $ from 'jquery'
@@ -33,10 +33,10 @@ render((
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={Home} />
-        <Route path="search/" component={Search} />
-        <Route path="list/" component={List} />
-        <Route path="beer/:beerUuid/" component={Detail} />
+        <IndexRoute component={HomeRoute} />
+        <Route path="search/" component={SearchRoute} />
+        <Route path="list/" component={ListRoute} />
+        <Route path="beer/:beerUuid/" component={DetailRoute} />
       </Route>
     </Router>
   </Provider>
