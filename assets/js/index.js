@@ -24,7 +24,7 @@ import Cookie from 'js-cookie'
 import './polyfill'
 
 // React components for Redux DevTools
-import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
+import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react'
 
 $.ajaxSetup({
   headers: { "X-CSRFToken": Cookie.get("csrftoken") }
@@ -35,11 +35,11 @@ import createBrowserHistory from 'history/lib/createBrowserHistory'
 let history = createBrowserHistory()
 
 // Authentication
-import { loginUserSuccess } from './ducks/auth';
-let token = Cookie.get('token');
+import { loginUserSuccess } from './ducks/auth'
+let token = Cookie.get('token')
 
 if (token !== null) {
-  store.dispatch(loginUserSuccess(token));
+  store.dispatch(loginUserSuccess(token))
 }
 
 const requireLogin = (nextState, replaceState) => {

@@ -13,7 +13,7 @@ class LogoutRoute extends Component {
 
   componentDidMount() {
     this.props.authActions.logout()
-    this.props.history.pushState(null, `/`);
+    this.props.history.pushState(null, `/`)
   }
 
   render() {

@@ -1,7 +1,7 @@
 // Redux utility functions
-import { compose, createStore, applyMiddleware } from 'redux';
+import { compose, createStore, applyMiddleware } from 'redux'
 // Redux DevTools store enhancers
-import { devTools, persistState } from 'redux-devtools';
+import { devTools, persistState } from 'redux-devtools'
 
 // Reducers
 import rootReducer from '../ducks'
@@ -20,11 +20,11 @@ export default function configureStore(initialState) {
       devTools(),
       // Lets you write ?debug_session=<name> in address bar to persist debug sessions
       persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
-    )(createStore);
+    )(createStore)
   } else {
     createStoreWithMiddleware = compose(
       applyMiddleware(thunk),
-    )(createStore);
+    )(createStore)
   }
 
   const store = createStoreWithMiddleware(rootReducer)

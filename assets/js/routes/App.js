@@ -22,7 +22,7 @@ class App extends Component {
     let className = styles.main
 
     if (app.style && styles[app.style] !== undefined) {
-      className += ` ${styles[app.style]}`;
+      className += ` ${styles[app.style]}`
     }
 
     return (

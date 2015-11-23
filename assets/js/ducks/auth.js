@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import Cookie from 'js-cookie'
 import { pushState } from 'redux-router'
-import jwtDecode from 'jwt-decode';
+import jwtDecode from 'jwt-decode'
 
 const LOGIN_USER_REQUEST = 'LOGIN_USER_REQUEST'
 const LOGIN_USER_SUCCESS = 'LOGIN_USER_SUCCESS'
@@ -34,7 +34,7 @@ export default function reducer(state = initialState, action = {}) {
       })
 
       try {
-        let decoded = jwtDecode(action.payload.token);
+        let decoded = jwtDecode(action.payload.token)
 
         return {
           ...state,
@@ -45,7 +45,7 @@ export default function reducer(state = initialState, action = {}) {
           'statusText': `You have been successfully signed in as ${decoded.username}.`
         }
       } catch (e) {
-        Cookie.remove('token');
+        Cookie.remove('token')
 
         return {
           ...state,
@@ -113,16 +113,16 @@ export function logout() {
 
 export function login(username, password, redirect) {
   return function(dispatch) {
-    dispatch(loginUserRequest());
+    dispatch(loginUserRequest())
 
     return $.post('/api-token-auth/', { username: username, password: password })
       .done(response => {
-        let redirect = redirect || '/';
-        dispatch(loginUserSuccess(response.token));
-        dispatch(pushState(null, redirect));
+        let redirect = redirect || '/'
+        dispatch(loginUserSuccess(response.token))
+        dispatch(pushState(null, redirect))
       })
       .fail(error => {
-        dispatch(loginUserFailure(error));
+        dispatch(loginUserFailure(error))
       })
   }
 }

@@ -8,11 +8,11 @@ class HomeRoute extends Component {
 
   componentDidMount() {
     this.props.actions.updateAppTitle('Let it beer!')
-    this.props.actions.updateAppClass('');
+    this.props.actions.updateAppClass('')
   }
 
   goToSearch = () => {
-    this.props.history.pushState(null, `/search/`);
+    this.props.history.pushState(null, `/search/`)
   }
 
   render() {

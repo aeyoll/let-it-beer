@@ -20,8 +20,8 @@ class LoginRoute extends Component {
   }
 
   handleLogin = (username, password) => {
-    const router = this.context.router;
-    this.props.authActions.login(username, password, router);
+    const router = this.context.router
+    this.props.authActions.login(username, password, router)
   }
 
   render() {
