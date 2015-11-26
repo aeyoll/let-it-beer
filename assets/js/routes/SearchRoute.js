@@ -37,6 +37,8 @@ class SearchRoute extends Component {
 
   handleUserSubmit = (query) => {
     $.post(this.props.app.api + '/search/', { query: query }, (data) => {
+      let beers = data
+
       this.setState({
         beers: beers
       })

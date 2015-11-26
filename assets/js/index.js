@@ -27,7 +27,7 @@ import './polyfill'
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react'
 
 $.ajaxSetup({
-  headers: { "X-CSRFToken": Cookie.get("csrftoken") }
+  headers: { 'X-CSRFToken': Cookie.get('csrftoken') }
 })
 
 // History
