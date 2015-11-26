@@ -2,6 +2,9 @@
 import { compose, createStore, applyMiddleware } from 'redux'
 // Redux DevTools store enhancers
 import { devTools, persistState } from 'redux-devtools'
+// Redux router
+import { reduxReactRouter } from 'redux-router'
+import { createHistory } from 'history'
 
 // Reducers
 import rootReducer from '../ducks'
@@ -16,6 +19,9 @@ export default function configureStore(initialState) {
     createStoreWithMiddleware = compose(
       // Enables your middleware
       applyMiddleware(thunk),
+      reduxReactRouter({
+        createHistory
+      }),
       // Provides support for DevTools:
       devTools(),
       // Lets you write ?debug_session=<name> in address bar to persist debug sessions
@@ -24,6 +30,9 @@ export default function configureStore(initialState) {
   } else {
     createStoreWithMiddleware = compose(
       applyMiddleware(thunk),
+      reduxReactRouter({
+        createHistory
+      })
     )(createStore)
   }
 

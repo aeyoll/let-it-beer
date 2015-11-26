@@ -5,6 +5,7 @@ import { Router, Route, IndexRoute } from 'react-router'
 
 // Redux
 import { Provider } from 'react-redux'
+import { ReduxRouter } from 'redux-router'
 import configureStore from './store/configureStore'
 const store = configureStore()
 
@@ -75,7 +76,9 @@ const router = (
 
 const provider = (
   <Provider store={store}>
-    {router}
+    <ReduxRouter>
+      {router}
+    </ReduxRouter>
   </Provider>
 )
 
