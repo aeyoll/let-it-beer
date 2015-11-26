@@ -15,7 +15,7 @@ class ListRoute extends Component {
     this.props.actions.updateAppTitle('Beer list')
     this.props.actions.updateAppClass('');
 
-    $.get(this.props.app.api + '/beers', function(data) {
+    $.get(this.props.app.api + '/beers', (data) => {
       var beers = data.results
 
       if (beers.length) {
@@ -23,7 +23,7 @@ class ListRoute extends Component {
           beers: beers,
         })
       }
-    }.bind(this))
+    })
   }
 
   render() {

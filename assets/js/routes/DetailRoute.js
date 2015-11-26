@@ -27,7 +27,7 @@ class DetailRoute extends Component {
   componentDidMount() {
     const uuid = this.props.params.beerUuid
 
-    $.get(this.props.app.api + '/beers/' + uuid, function(data) {
+    $.get(this.props.app.api + '/beers/' + uuid, (data) => {
       var beer = data
 
       if (beer._has_fetched === false) {
@@ -40,7 +40,7 @@ class DetailRoute extends Component {
 
       this.props.actions.updateAppTitle(beer.name)
       this.props.actions.updateAppClass(slug('is-' + this.state.beer.style).toLowerCase())
-    }.bind(this))
+    })
   }
 
   render() {
