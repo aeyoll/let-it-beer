@@ -9,6 +9,8 @@ const LOGIN_USER_FAILURE = 'LOGIN_USER_FAILURE'
 
 const LOGOUT_USER = 'LOGOUT_USER'
 
+const DISCONNECT_USER = 'DISCONNECT_USER'
+
 const initialState = {
   token: null,
   username: null,
@@ -75,6 +77,15 @@ export default function reducer(state = initialState, action = {}) {
         'username': null,
         'statusText': 'You have been successfully logged out.'
       }
+
+    case DISCONNECT_USER:
+      return {
+        ...state,
+        'isAuthenticated': false,
+        'token': null,
+        'username': null,
+        'statusText': 'Your session has expired, you need to login again.'
+      }
     default:
       return state
   }
@@ -111,6 +122,12 @@ export function logout() {
   }
 }
 
+export function disconnect() {
+  return {
+    type: DISCONNECT_USER
+  }
+}
+
 export function login(username, password, redirect) {
   return function(dispatch) {
     dispatch(loginUserRequest())
@@ -134,7 +151,7 @@ export function tokenVerify(token) {
         dispatch(refreshToken(token))
       })
       .fail(error => {
-        dispatch(logout)
+        dispatch(disconnect)
       })
   }
 }
@@ -146,7 +163,7 @@ export function refreshToken(token) {
         dispatch(loginUserSuccess(response.token))
       })
       .fail(error => {
-        dispatch(logout)
+        dispatch(disconnect)
       })
   }
 }
