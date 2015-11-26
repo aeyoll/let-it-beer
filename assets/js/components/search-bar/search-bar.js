@@ -21,7 +21,7 @@ class SearchBar extends Component {
     })
   }
 
-  handleChange = () => {
+  handleChange = (event) => {
     this.props.onUserInput(event.target.value)
   }
 
