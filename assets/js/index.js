@@ -35,11 +35,11 @@ import createBrowserHistory from 'history/lib/createBrowserHistory'
 let history = createBrowserHistory()
 
 // Authentication
-import { loginUserSuccess } from './ducks/auth'
+import { loginUserSuccess, tokenVerify } from './ducks/auth'
 let token = Cookie.get('token')
 
-if (token !== null) {
-  store.dispatch(loginUserSuccess(token))
+if (token !== undefined && token !== null) {
+  store.dispatch(tokenVerify(token))
 }
 
 const requireLogin = (nextState, replaceState) => {

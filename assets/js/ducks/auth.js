@@ -115,7 +115,7 @@ export function login(username, password, redirect) {
   return function(dispatch) {
     dispatch(loginUserRequest())
 
-    return $.post('/api-token-auth/', { username: username, password: password })
+    return $.post('/api/v1/token-auth/', { username: username, password: password })
       .done(response => {
         let redirect = redirect || '/'
         dispatch(loginUserSuccess(response.token))
@@ -127,3 +127,26 @@ export function login(username, password, redirect) {
   }
 }
 
+export function tokenVerify(token) {
+  return function(dispatch) {
+    $.post('/api/v1/token-verify/', { token: token })
+      .done(response => {
+        dispatch(refreshToken(token))
+      })
+      .fail(error => {
+        dispatch(logout)
+      })
+  }
+}
+
+export function refreshToken(token) {
+  return function(dispatch) {
+    $.post('/api/v1/token-refresh/', { token: token })
+      .done(response => {
+        dispatch(loginUserSuccess(response.token))
+      })
+      .fail(error => {
+        dispatch(logout)
+      })
+  }
+}
