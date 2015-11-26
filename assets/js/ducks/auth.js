@@ -70,6 +70,8 @@ export default function reducer(state = initialState, action = {}) {
       }
 
     case LOGOUT_USER:
+      Cookie.remove('token')
+
       return {
         ...state,
         'isAuthenticated': false,
