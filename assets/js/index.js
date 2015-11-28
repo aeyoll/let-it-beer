@@ -83,10 +83,10 @@ const provider = (
 )
 
 render((
-    <div>
-      {provider}
-      { __DEVTOOLS__ && <DebugPanel top right bottom>
-        <DevTools store={store} monitor={LogMonitor} />
-      </DebugPanel> }
-    </div>
+  <div>
+    {provider}
+    { __DEVTOOLS__ && <DebugPanel top right bottom>
+      <DevTools store={store} monitor={LogMonitor} />
+    </DebugPanel> }
+  </div>
 ), document.getElementById('react-app'))
