@@ -5,12 +5,12 @@ import { devTools, persistState } from 'redux-devtools'
 // Redux router
 import { reduxReactRouter } from 'redux-router'
 import { createHistory } from 'history'
-
 // Reducers
 import rootReducer from '../ducks'
-
 // Redux thunk, for async reducers
 import thunk from 'redux-thunk'
+// Devtools
+import DevTools from '../devTools';
 
 export default function configureStore(initialState) {
   let createStoreWithMiddleware
@@ -23,7 +23,7 @@ export default function configureStore(initialState) {
         createHistory
       }),
       // Provides support for DevTools:
-      devTools(),
+      DevTools.instrument(),
       // Lets you write ?debug_session=<name> in address bar to persist debug sessions
       persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
     )(createStore)

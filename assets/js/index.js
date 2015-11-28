@@ -24,8 +24,8 @@ import $ from 'jquery'
 import Cookie from 'js-cookie'
 import './polyfill'
 
-// React components for Redux DevTools
-import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react'
+// Development tools
+import DevTools from './devTools'
 
 $.ajaxSetup({
   headers: { 'X-CSRFToken': Cookie.get('csrftoken') }
@@ -76,17 +76,17 @@ const router = (
 
 const provider = (
   <Provider store={store}>
-    <ReduxRouter>
-      {router}
-    </ReduxRouter>
+    <div>
+      <ReduxRouter>
+        {router}
+      </ReduxRouter>
+      { __DEVTOOLS__ && <DevTools /> }
+    </div>
   </Provider>
 )
 
 render((
   <div>
     {provider}
-    { __DEVTOOLS__ && <DebugPanel top right bottom>
-      <DevTools store={store} monitor={LogMonitor} />
-    </DebugPanel> }
   </div>
 ), document.getElementById('react-app'))
