@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import ratebeer
 
-from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from django.http import JsonResponse
 

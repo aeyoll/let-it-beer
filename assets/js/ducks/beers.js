@@ -3,23 +3,19 @@ import $ from 'jquery'
 const BEER_ADD = 'BEER_ADD'
 const BEER_DELETE = 'BEER_DELETE'
 
-const initialState = {
-  beers: []
-}
+const initialState = []
 
 export default function reducer(state = initialState, action = {}) {
   switch (action.type) {
     case BEER_ADD:
-      return {
-        ...state,
-        'beers': [],
-      }
+      return state.unshift({
+        name: action.item.name
+      })
 
     case BEER_DELETE:
-      return {
-        ...state,
-        'beers': [],
-      }
+      return state.filter(beer =>
+        beer['id'] !== action['id']
+      )
 
     default:
       return state
